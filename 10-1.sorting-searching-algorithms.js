@@ -27,4 +27,20 @@ class ArrayList {
             if (flag) break
         }
     }
+
+    selectionSort = () => {
+        const length = this.array.length
+        let indexMin
+        for (let i = 0; i < length - 1; i++) {
+            indexMin = i
+            for (let j = i + 1; j < length; j++) {
+                if (this.array[indexMin] > this.array[j]) {
+                    indexMin = j
+                }
+            }
+            if (i !== indexMin) {
+                this.swap(i, indexMin)
+            }
+        }
+    }
 }
