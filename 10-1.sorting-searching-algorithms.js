@@ -142,4 +142,13 @@ class ArrayList {
         array[index1] = array[index2]
         array[index2] = aux
     }
+
+    sequentialSearch = (item) => {
+        for (let i = 0; i < this.array.length; i++) {
+            if (item === this.array[i]) {
+                return i
+            }
+        }
+        return -1
+    }
 }
