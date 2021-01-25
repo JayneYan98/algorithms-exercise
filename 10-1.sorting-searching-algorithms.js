@@ -96,4 +96,50 @@ class ArrayList {
 
         return result
     }
+
+    quickSort = () => {
+        this.quick(this.array, 0, this.array.length - 1)
+    }
+    quick = (array, left, right) => {
+        let index
+
+        if (array.length > 1) {
+
+            index = this.partition(array, left, right)
+
+            if (left < index - 1) {
+                this.quick(array, left, index - 1)
+            }
+
+            if (index < right) {
+                this.quick(array, index, right)
+            }
+        }
+    }
+    partition = (array, left, right) => {
+        let pivot = array[Math.floor((right + left) / 2)]
+        let i = left
+        let j = right
+
+        while (i <= j) {
+            while (array[i] < pivot) {
+                i++
+            }
+
+            while (array[j] > pivot) {
+                j--
+            }
+
+            if (i <= j) {
+                this.swapQuickSort(array, i, j)
+                i++
+                j--
+            }
+        }
+    }
+    swapQuickSort = (array, index1, index2) => {
+        let aux = array[index1]
+        array[index1] = array[index2]
+        array[index2] = aux
+    }
 }
