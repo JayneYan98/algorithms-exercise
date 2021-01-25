@@ -151,4 +151,27 @@ class ArrayList {
         }
         return -1
     }
+
+    binarySearch = (item) => {
+        this.quickSort()
+
+        let low = 0
+        let high = this.array.length - 1
+        let mid
+        let element
+
+        while (low <= high) {
+            mid = Math.floor((low + high) / 2)
+            element = this.array[mid]
+            if (element < item) {
+                low = mid + 1
+            } else if (element > item) {
+                high = mid - 1
+            } else {
+                return mid
+            }
+        }
+
+        return -1
+    }
 }
